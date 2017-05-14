@@ -17,4 +17,3 @@ To start:
 Credit to [SurviveJS](http://survivejs.com) for core configs.
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-# React-Rest-Boilerplate
