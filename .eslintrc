@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "standard",
+    "plugin:ava/recommended"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "ava"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "ecmaFeatures": {
+    "jsx": true,
+    "es6": true,
+    "classes": true
+  }
+}

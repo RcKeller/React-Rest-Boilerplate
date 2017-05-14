@@ -1,25 +1,26 @@
-document.addEventListener('DOMContentLoaded', function (event) {
-  let protocol = 'http://'
-  let endpoint = '138.68.249.21'
-  let query = '/zips/city/' // + argument
+/**
+ * Entry Script
+ */
 
-  let getZips = function (city) {
-    let target = protocol + endpoint + query + city
-    fetch(target, {
-      method: 'get'
-    }).then(function (response) {
-      return response.json()
-    }).then(function (data) {
-      console.log(data)
-    }).catch(function (err) {
-      console.error(err)
-    })
-  }
+if (process.env.NODE_ENV === 'production') {
+  process.env.webpackAssets = JSON.stringify(require('./dist/manifest.json'));
+  process.env.webpackChunkAssets = JSON.stringify(require('./dist/chunk-manifest.json'));
+  // In production, serve the webpacked server file.
+  require('./dist/server.bundle.js');
+} else {
+  // Babel polyfill to convert ES6 code in runtime
+  require('babel-register')({
+    "plugins": [
+      [
+        "babel-plugin-webpack-loaders",
+        {
+          "config": "./webpack.config.babel.js",
+          "verbose": false
+        }
+      ]
+    ]
+  });
+  require('babel-polyfill');
 
-  document.getElementById('city-form').addEventListener('submit', function (e) {
-    e.preventDefault()
-    let val
-    val = document.getElementById('city-input').value
-    val && getZips(val)
-  })
-})
+  require('./server/server');
+}

@@ -1,0 +1,14 @@
+/*This sticky footer brought to you by... Flexbox!
+https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/*/
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.content {
+  flex: 1;
+}
+.headroom {
+  /* Bust a bug with React-headroom scaling on desktop */
+  /*height: inherit !important;*/
+}
