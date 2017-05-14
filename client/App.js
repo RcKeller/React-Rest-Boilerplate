@@ -10,7 +10,6 @@ import routes from './routes'
 
 // Base stylesheet
 require('./main.css')
-
 export default function App (props) {
   return (
     <Provider store={props.store}>
@@ -21,6 +20,4 @@ export default function App (props) {
   )
 }
 
-App.propTypes = {
-  store: PropTypes.object.isRequired
-}
+App.propTypes = { store: PropTypes.object.isRequired }

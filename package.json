@@ -3,12 +3,12 @@
   "version": "0.0.2",
   "description": "Boilerplate project for building Isomorphic apps using React and Redux",
   "scripts": {
-    "test": "cross-env NODE_ENV=test PORT=8080 MONGO_URL=mongodb://192.168.99.100:27017/mern-test node_modules/.bin/nyc node_modules/.bin/nyc node_modules/.bin/ava --serial",
+    "test": "cross-env NODE_ENV=test PORT=8080 node_modules/.bin/nyc node_modules/.bin/nyc node_modules/.bin/ava --serial",
     "watch:test": "npm run test -- --watch",
     "cover": "nyc npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "start": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=development nodemon index.js",
-    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "start": "cross-env BABEL_DISABLE_CACHE=1 NODE_ENV=development webpack-dev-server",
+    "start:prod": "cross-env NODE_ENV=production webpack-dev-server",
     "bs": "npm run clean && npm run build && npm run build:server && npm run start:prod",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
@@ -22,6 +22,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RcKeller/mern-stack.git"
+  },
+  "author": {
+    "name": "Ryan Keller",
+    "email": "RyKeller@uw.edu",
+    "url": "https://www.Rckeller.github.io"
   },
   "dependencies": {
     "babel-core": "^6.9.1",
